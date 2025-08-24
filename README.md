@@ -1,24 +1,44 @@
-# README
+# Recipe App 🍽️
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> **📖 For complete project documentation, setup instructions, and overview, please see the [main project README](../README.md).**
 
-Things you may want to cover:
+This directory contains the Ruby on Rails application component of the First Ruby Project.
 
-* Ruby version
+## Quick Start
 
-* System dependencies
+```bash
+# From the recipe_app directory
+bundle install
+rails db:create db:migrate db:seed
+rails server
+```
 
-* Configuration
+Visit: http://localhost:3000
 
-* Database creation
+## Rails-Specific Commands
 
-* Database initialization
+```bash
+# Run tests
+rails test
 
-* How to run the test suite
+# Rails console
+rails console
 
-* Services (job queues, cache servers, search engines, etc.)
+# Database console
+rails dbconsole
 
-* Deployment instructions
+# Precompile assets
+rails assets:precompile
+```
 
-* ...
+## Database Schema
+
+### Recipes Table
+- `title` (string) - Recipe name
+- `image_url` (string) - URL to recipe image  
+- `ingredients` (text) - Ingredient list
+- `instructions` (text) - Cooking instructions
+
+---
+
+**For full documentation, deployment guides, and project management tools, see the [main README](../README.md).**
