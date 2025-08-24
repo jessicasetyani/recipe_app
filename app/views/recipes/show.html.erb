@@ -1,0 +1,37 @@
+<% content_for :title, @recipe.title %>
+
+<div class="recipe-container">
+  <header>
+    <h1><%= @recipe.title %></h1>
+  </header>
+
+  <% if @recipe.image_url.present? %>
+    <div class="recipe-image">
+      <%= image_tag @recipe.image_url, alt: @recipe.title, class: "recipe-photo" %>
+    </div>
+  <% end %>
+
+  <section class="ingredients">
+    <h2>Ingredients</h2>
+    <ul>
+      <% @recipe.ingredients.split("\n").each do |ingredient| %>
+        <% if ingredient.strip.present? %>
+          <li><%= ingredient.strip %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="instructions">
+    <h2>Instructions</h2>
+    <ol>
+      <% @recipe.instructions.split("\n").each do |step| %>
+        <% if step.strip.present? %>
+          <% # Remove leading numbers and periods from the step text %>
+          <% clean_step = step.strip.gsub(/^\d+\.\s*/, '') %>
+          <li><%= clean_step %></li>
+        <% end %>
+      <% end %>
+    </ol>
+  </section>
+</div>
